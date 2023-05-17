@@ -4,7 +4,7 @@ let {registerUser,loginUserService} = require("../service/userService")
 exports.register = async (req,res,next)=>{
     try{
         const { name, mobile, password} = req.body
-        if(!(mobile || password)){
+        if(!(mobile & password)){
             let err = new Error('Mobile & password is required')
             err.status = 400
             throw (err)
@@ -25,7 +25,7 @@ exports.register = async (req,res,next)=>{
 exports.login = async (req,res,next)=>{
     try{ 
         const {mobile , password} = req.body
-        if(!(mobile || password)){
+        if(!(mobile & password)){
             let err = new Error('Mobile & password is required')
             err.status = 400
             throw (err)
